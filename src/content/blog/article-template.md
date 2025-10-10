@@ -1,7 +1,7 @@
 ---
 title: Markdown 样式示例
 description: 'Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.'
-publishDate: 2024-10-20 00:00:00
+publishDate: 2025-12-31 00:00:00
 # img: /assets/stock.jpg 可配置文章封面
 # img_alt: stock
 tags:
@@ -206,3 +206,4 @@ X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
 Press <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>Delete</kbd> to end the session.
 
 Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.
+

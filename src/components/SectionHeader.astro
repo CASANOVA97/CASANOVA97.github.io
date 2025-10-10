@@ -19,11 +19,11 @@ const { tag, description } = Astro.props;
                     <slot />
                 </div>
 			</div>
-			<div class="section-desc" >
-				<div class="section-saying">
-                 <p> {description}</p>
-				</div>
+		<div class="section-desc" >
+			<div class="section-saying">
+                 <p set:html={description}></p>
 			</div>
+		</div>
             <div class="section-social">
                 <Social/>
             </div>
@@ -106,6 +106,8 @@ const { tag, description } = Astro.props;
         p{
             font-size: 0.875rem;
             margin-bottom:0.5em;
+            line-height: 1.8;
+            word-break: break-word;
         }
         a:link{
             color:#11A371;
