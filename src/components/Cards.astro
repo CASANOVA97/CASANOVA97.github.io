@@ -1,31 +1,60 @@
 ---
 import Filter from '../components/Filter.astro';
-// 引入 JSON 文件并加载数据
-// const cardJsonString = '/assets/data/card.json';
-// const cardData = JSON.parse(cardJsonString);
-// 使用 JSON 数据
-// import cardData from '../components/card.json';
 import cardData from '../data/home.json';
-const cards = [];
-for (const [index,item] of cardData.entries()) {
-  const card = {
-    id: item.id || index,
+
+// 类型声明：给 JSON 行增加可选 url
+type RawItem = {
+  id?: string | number;
+  title: string;
+  cover?: string;
+  desc?: string;
+  detail?: string;
+  category?: string | string[];
+  tag?: string;
+  date?: string;
+  mark?: boolean;
+  url?: string; // 关键：加上可选 url
+};
+
+// 规范化为组件用的 Card 类型
+type Card = {
+  id: string | number;
+  title: string;
+  cover: string;
+  description: string;
+  url?: string;
+  detail?: string;
+  category: string[]; // Shuffle 期望是数组
+  tag: string;
+  date: string;
+  mark: boolean;
+  index: number;
+};
+
+const cards: Card[] = (cardData as RawItem[]).map((item, index) => {
+  const id = item.id ?? index;
+  // 兜底策略：若没给 url，就不渲染右侧小箭头；若需要统一内页路由，可把 url 改为 `/posts/${id}`
+  const url = item.url ?? ''; // 若你希望始终有链接，可改成: item.url ?? item.detail ?? `/posts/${id}`
+  const categoryArr = Array.isArray(item.category) ? item.category : [item.category ?? 'other'];
+
+  return {
+    id,
     title: item.title,
-    cover: item.cover || "",
-    description: item.desc || "",
-    url: item.url || "",
-    detail: item.detail || "",
-    category: item.category || "other",
-    tag: item.tag || "",
-    date: item.date || "",
-    mark: item.mark|| "",
+    cover: item.cover ?? '',
+    description: item.desc ?? '',
+    url,
+    detail: item.detail ?? '',
+    category: categoryArr,
+    tag: item.tag ?? '',
+    date: item.date ?? '',
+    mark: Boolean(item.mark),
     index: index + 1,
   };
-  cards.push(card);
-}
-// const cardFullData= JSON.stringify(cards);
+});
+
 const count = cards.length;
 ---
+
 <Filter count={count} />
 <div class="section card">
     <div class="js-shuffle-sizer" >
@@ -189,7 +218,7 @@ class Demo {
     let options = {};
 
     function sortByDate(element) {
-      return element.getAttribute('data-created');
+      return element.getAttribute('data-date-created') || '';
     }
 
     function sortByTitle(element) {
