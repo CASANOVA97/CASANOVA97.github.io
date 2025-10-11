@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       REPO_URL: "CASANOVA97/CASANOVA97.github.io"
-      BUILD_PATH: "dist"                 # ✅ 修改：Astro 构建产物目录是 dist
+      BUILD_PATH: "dist"                 # ✅ 修改：Astro 默认输出目录
       CUSTOM_DOMAIN: "casanova.asia"
 
     steps:
@@ -27,20 +27,20 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'pnpm'                  # ✅ 新增：pnpm 缓存
+          cache: 'pnpm'                  # ✅ 启用 pnpm 缓存
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4       # ✅ 新增：官方 pnpm Action
+      - name: Setup pnpm                 # ✅ 必须在 Node 之后、install 之前
+        uses: pnpm/action-setup@v4
         with:
           version: 10
 
       - name: Install dependencies
         run: pnpm install
 
-      - name: Ensure sharp present        # ✅ 新增：CI 临时安装 sharp（避免 MissingSharp）
+      - name: Ensure sharp present       # ✅ 临时安装 sharp 避免 MissingSharp
         run: pnpm add sharp
 
-      - name: Approve native builds       # ✅ 新增：允许原生构建脚本
+      - name: Approve native builds      # ✅ 允许执行原生构建脚本（pnpm v10 需要）
         run: pnpm approve-builds sharp esbuild @parcel/watcher
 
       - name: Build project
