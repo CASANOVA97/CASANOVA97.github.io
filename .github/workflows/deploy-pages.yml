@@ -20,39 +20,42 @@ jobs:
       CUSTOM_DOMAIN: "casanova.asia"  # 自定义域名
 
     steps:
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4      # ✅ 升级 v4（推荐）
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4    # ✅ 升级 v4（推荐）
         with:
           node-version: '20'
+          cache: 'pnpm'                # ✅ 新增：启用 pnpm 缓存提升速度
 
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Setup pnpm               # ✅ 新增：使用官方 pnpm/action-setup
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
 
-      # 安装 pnpm、安装依赖并构建项目
-      - name: Install pnpm
-        run: npm install -g pnpm
-      - name: Install dependencies and build
-        run: |
-          pnpm install
-          pnpm build
+      - name: Install dependencies
+        run: pnpm install              # ✅ 拆分出单独安装步骤
+
+      # ✅ 新增：批准 sharp / esbuild / @parcel/watcher 的原生构建（防止 MissingSharp）
+      - name: Approve native builds
+        run: pnpm approve-builds sharp esbuild @parcel/watcher
+
+      - name: Build project
+        run: pnpm run build            # ✅ 使用 run build 保持语义统一
 
       # 将静态文件部署到 pages 分支
       - name: Deploy to GitHub Pages
         run: |
-          cd $BUILD_PATH       
-          echo "$CUSTOM_DOMAIN" > CNAME  # 使用自定义域名
+          cd $BUILD_PATH
+          echo "$CUSTOM_DOMAIN" > CNAME
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
-          # 初始化一个新的 git 仓库
           git init
           git add .
           git commit -m "Deploy to GitHub Pages"
-          # 创建 pages 分支（如果不存在）
           git checkout -B pages
-
-          # 添加远程仓库并推送到 pages 分支
           git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ env.REPO_URL }}.git
           git push --force origin pages
-
         env:
           CI: true
