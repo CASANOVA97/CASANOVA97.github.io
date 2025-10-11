@@ -2,34 +2,32 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
-    paths-ignore:
-      - '.github/**'
-      - 'pages/**'
-      - 'public/**'
-      - '.vitepress/**'
+    branches: [ main ]
   workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write          # ✅ 必须：允许发布 Pages
+  id-token: write       # ✅ 必须：OIDC 部署
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      REPO_URL: "CASANOVA97/CASANOVA97.github.io"
-      BUILD_PATH: "dist"                 # ✅ 修改：Astro 默认输出目录
-      CUSTOM_DOMAIN: "casanova.asia"
-
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'pnpm'                  # ✅ 启用 pnpm 缓存
+          cache: 'pnpm'
 
-      - name: Setup pnpm                 # ✅ 必须在 Node 之后、install 之前
+      - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 10
@@ -37,26 +35,25 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Ensure sharp present       # ✅ 临时安装 sharp 避免 MissingSharp
+      # 如需 Astro 图片优化（用 sharp），保留这两步；若已配置 noop image service，可删除
+      - name: Ensure sharp present
         run: pnpm add sharp
-
-      - name: Approve native builds      # ✅ 允许执行原生构建脚本（pnpm v10 需要）
+      - name: Approve native builds
         run: pnpm approve-builds sharp esbuild @parcel/watcher
 
-      - name: Build project
-        run: pnpm run build
+      - name: Build
+        run: pnpm run build   # 产物在 dist/
 
-      - name: Deploy to GitHub Pages
-        run: |
-          cd "$BUILD_PATH"
-          echo "$CUSTOM_DOMAIN" > CNAME
-          git config --global user.email "actions@github.com"
-          git config --global user.name "GitHub Actions"
-          git init
-          git add .
-          git commit -m "Deploy to GitHub Pages"
-          git checkout -B pages
-          git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ env.REPO_URL }}.git
-          git push --force origin pages
-        env:
-          CI: true
+      - name: Upload artifact (dist → Pages)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist        # 指向 Astro 输出目录
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
