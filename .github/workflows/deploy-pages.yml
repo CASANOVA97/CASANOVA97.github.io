@@ -25,24 +25,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'pnpm'
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10
+          cache: 'npm'
 
       - name: Install dependencies
-        run: pnpm install
-
-      # 如需 Astro 图片优化（用 sharp），保留这两步；若已配置 noop image service，可删除
-      - name: Ensure sharp present
-        run: pnpm add sharp
-      - name: Approve native builds
-        run: pnpm approve-builds sharp esbuild @parcel/watcher
+        run: npm ci
 
       - name: Build
-        run: pnpm run build   # 产物在 dist/
+        run: npm run build   # 产物在 dist/
 
       - name: Upload artifact (dist → Pages)
         uses: actions/upload-pages-artifact@v3
