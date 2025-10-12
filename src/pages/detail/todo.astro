@@ -4,7 +4,7 @@ import DetailHeader from "../../components/DetailHeader.astro";
 import DetailPostLayout from "../../layouts/DetailPostLayout.astro";
 import CallToAction from "../../components/CallToAction.astro";
 
-//输入文件夹地址，会按文件名自动加载全部，并压缩为webp格式
+// 输入文件夹地址，会按文件名自动加载全部，并压缩为webp格式
 const images = await import.meta.glob('../../assets/projects/todo/*.{jpg,png,webp}', { eager: true });
 
 ---
