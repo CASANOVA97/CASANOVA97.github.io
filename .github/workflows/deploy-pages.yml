@@ -32,6 +32,9 @@ jobs:
 
       - name: Ensure .nojekyll exists
         run: touch dist/.nojekyll
+      
+      - name: Copy CNAME file
+        run: cp public/CNAME dist/CNAME
 
       - name: Upload build artifacts
         uses: actions/upload-pages-artifact@v3
