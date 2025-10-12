@@ -5,7 +5,7 @@ import DetailPostLayout from "../../layouts/DetailPostLayout.astro";
 import CallToAction from "../../components/CallToAction.astro";
 
 //输入文件夹地址，会按文件名自动加载全部，并压缩为webp格式
-const images = await Astro.glob('../../assets/projects/todo/*.{jpg,png,webp}');
+const images = await import.meta.glob('../../assets/projects/todo/*.{jpg,png,webp}', { eager: true });
 
 ---
 <DetailPostLayout
@@ -48,7 +48,7 @@ const images = await Astro.glob('../../assets/projects/todo/*.{jpg,png,webp}');
 				</div>
 			</section>
 			<section class="preview">
-				{images.map((img, index) => (
+				{Object.values(images).map((img: any, index) => (
 					<picture class="gsap-picture">
 					  <Image src={img.default} alt={`Image ${index + 1}`}   loading="lazy" decoding="async" />
 					</picture>

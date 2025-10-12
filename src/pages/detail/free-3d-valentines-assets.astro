@@ -4,7 +4,7 @@ import DetailHeader from "../../components/DetailHeader.astro";
 import DetailPostLayout from "../../layouts/DetailPostLayout.astro";
 import CallToAction from "../../components/CallToAction.astro";
 
-const images = await Astro.glob('../../assets/projects/free-3d-valentines-assets/*.{jpg,png,webp}');
+const images = await import.meta.glob('../../assets/projects/free-3d-valentines-assets/*.{jpg,png,webp}', { eager: true });
 
 
 ---
@@ -50,7 +50,7 @@ const images = await Astro.glob('../../assets/projects/free-3d-valentines-assets
 				</div>
 			</section>
 			<section class="preview">
-				{images.map((img, index) => (
+				{Object.values(images).map((img: any, index) => (
 					<picture class="picture">
 					  <Image src={img.default} alt={`Image ${index + 1}`}   loading="lazy" decoding="async" />
 					</picture>
