@@ -1,0 +1,1019 @@
+---
+import DetailPostLayout from "../../layouts/DetailPostLayout.astro";
+import DetailHeader from "../../components/DetailHeader.astro";
+import CallToAction from "../../components/CallToAction.astro";
+import { Image } from "astro:assets";
+// 导入工具截图
+import gmgnScreenshot from "../../assets/projects/gmgn-screenshot.jpg";
+import bloomScreenshot1 from "../../assets/projects/bloom-screenshot.jpg";
+import bloomScreenshot2 from "../../assets/projects/bloom-screenshot2.jpg";
+import bloomScreenshot3 from "../../assets/projects/bloom-screenshot3.jpg";
+import aveScreenshot from "../../assets/projects/ave-screenshot.jpg";
+import arkhamScreenshot1 from "../../assets/projects/arkham-screenshot.jpg";
+import arkhamScreenshot2 from "../../assets/projects/arkham-screenshot2.jpg";
+import chainfmScreenshot from "../../assets/projects/chainfm-screenshot.jpg";
+import memeradarScreenshot1 from "../../assets/projects/memeradar-screenshot.jpg";
+import memeradarScreenshot2 from "../../assets/projects/memeradar-screenshot2.jpg";
+import memeradarScreenshot3 from "../../assets/projects/memeradar-screenshot3.jpg";
+import frontrunVideo from "../../assets/projects/frontrun-video.mp4";
+---
+
+<DetailPostLayout
+	title="扫链插件指南 | 行止的工具推荐"
+	description="详细介绍GMGN、Bloom、Ave、Arkham、Chain.fm、MemeRadar、Frontrun等主流链上扫链工具和Twitter插件，帮助Web3用户提升链上分析效率"
+	keywords="链上扫链,GMGN,Bloom,Ave,Arkham,Chain.fm,MemeRadar,Frontrun,Web3工具,链上监控,Twitter插件,AI抓庄,刮刀交易,行止"
+>
+	<div class="post">
+		<main class="post-wrapper">
+			<DetailHeader
+				tag="工具推荐"
+				description="">
+				<h1 class="font-type">
+					扫链插件指南
+				</h1>
+			</DetailHeader>
+
+			<!-- 侧边目录 -->
+			<aside class="table-of-contents">
+				<div class="toc-sticky">
+					<h3>📑 目录</h3>
+					<nav>
+						<a href="#scanning-tools" class="toc-link">📊 扫链工具</a>
+						<a href="#monitoring-tools" class="toc-link">🔍 链上监控</a>
+						<a href="#twitter-plugins" class="toc-link">🐦 Twitter插件</a>
+						<a href="#usage-tips" class="toc-link">💡 使用建议</a>
+						<a href="#summary" class="toc-link">🎯 总结</a>
+					</nav>
+				</div>
+			</aside>
+
+			<section>
+				<div class="content">
+					<div class="intro">
+						<p class="lead">
+							在Web3的世界里，链上数据就是一切。无论是寻找早期项目、监控聪明钱地址，还是识别诈骗项目，都需要强大的扫链工具。本文将为你详细介绍当前最主流的链上扫链插件和工具，助你在链上世界中游刃有余。
+						</p>
+						<p class="lead" style="background: #fff3cd; border-left-color: #ffc107;">
+							<strong>💡 使用建议：</strong>工具之间存在互补关系，建议根据场景组合使用。例如：投研时用GMGN扫链→Bloom自动交易→Ave追踪聪明钱→Arkham深度分析→Chain.fm监控地址→MemeRadar AI抓庄分析→Frontrun标记地址。
+						</p>
+					</div>
+
+					<h2 class="post-title" id="scanning-tools">📊 扫链工具</h2>
+					
+					<div class="tool-section">
+						<h3>GMGN - 最全面的Meme币看板</h3>
+						<p><strong>推荐指数：⭐⭐⭐⭐⭐</strong></p>
+						<p>
+							<strong>简介：</strong>GMGN绝对是绝大部分打狗用户都不陌生的工具。在币安创始人CZ开始带动BNB MEME生态之后，GMGN团队迅速开发了BNB链上的各种配套功能，正在与SOL链上的功能看齐。
+						</p>
+						<p>
+							<strong>核心功能：</strong>
+						</p>
+						<ul>
+							<li><strong>即将打满看板</strong>：可以设置最长的发射时间，自动剔除Four上很老但一直没有发射成功的币</li>
+							<li><strong>多链支持</strong>：同时支持SOL和BNB链</li>
+							<li><strong>实时数据</strong>：提供实时的代币价格、交易量等数据</li>
+						</ul>
+						<p>
+							<strong>使用建议：</strong>目前GMGN存在一些小bug，比如看板上Migration的标记时间经常不准确，代币名称旁显示的发射时间有时候也会有比较大的误差。建议团队尽快优化这些问题。
+						</p>
+						<div class="btn-group">
+							<CallToAction href="https://gmgn.ai" target="_blank">
+								访问 GMGN
+							</CallToAction>
+						</div>
+						
+						<!-- GMGN 截图展示 -->
+						<div class="tool-screenshot">
+							<Image 
+								src={gmgnScreenshot} 
+								alt="GMGN界面截图 - 显示即将打满看板和代币数据" 
+								loading="lazy" 
+								decoding="async"
+								class="screenshot-img"
+							/>
+							<p class="screenshot-caption">GMGN界面展示 - 即将打满看板功能</p>
+						</div>
+					</div>
+
+					<div class="tool-section">
+						<h3>Bloom - 专业刮刀交易插件</h3>
+						<p><strong>推荐指数：⭐⭐⭐⭐⭐</strong></p>
+						<p>
+							<strong>简介：</strong>Bloom是目前市面上最专业和速度最快的刮刀插件，支持Twitter、Discord、Telegram(TG)刮刀，能够自动监控社交媒体和交流群，当出现CA时自动买入卖出，解放双手，不错过大金狗。
+						</p>
+						
+						<div class="feature-table">
+							<h4>核心功能模块：</h4>
+							<table>
+								<thead>
+									<tr>
+										<th>功能模块</th>
+										<th>说明</th>
+										<th>应用场景</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><strong>多平台刮刀支持</strong></td>
+										<td>支持Twitter、Discord、Telegram(TG)刮刀</td>
+										<td>全平台监控，不错过任何机会</td>
+									</tr>
+									<tr>
+										<td><strong>自动买入卖出</strong></td>
+										<td>监控群组出现CA时自动买入，达到预设后自动卖出</td>
+										<td>解放双手，24小时自动交易</td>
+									</tr>
+									<tr>
+										<td><strong>限价订单策略</strong></td>
+										<td>支持创建多个卖单，设置分批止盈策略</td>
+										<td>风险控制，分批获利了结</td>
+									</tr>
+									<tr>
+										<td><strong>一键快捷买入</strong></td>
+										<td>推特出现CA时自动显示一键买入按钮</td>
+										<td>闪电买入，抢占先机</td>
+									</tr>
+									<tr>
+										<td><strong>多预设管理</strong></td>
+										<td>可设置多个预设，包括购买金额、gas费、滑点等</td>
+										<td>灵活配置，适应不同交易策略</td>
+									</tr>
+									<tr>
+										<td><strong>跟单功能</strong></td>
+										<td>支持copy trade，自动跟随指定地址买卖</td>
+										<td>跟随高手，复制成功策略</td>
+									</tr>
+									<tr>
+										<td><strong>多地址管理</strong></td>
+										<td>支持生成多个SOL地址，分别管理</td>
+										<td>分散风险，多账户操作</td>
+									</tr>
+									<tr>
+										<td><strong>全网站覆盖</strong></td>
+										<td>在DC、TG、推特、GMGN、Axiom、BullX等平台显示买入按钮</td>
+										<td>全平台覆盖，无死角监控</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						
+						<div class="practical-examples">
+							<h4>🔍 实战用途举例：</h4>
+							<div class="example-item">
+								<h5>信号群自动交易：</h5>
+								<p>监控OW信号群，当$GORK在650k通知时，Bloom自动买入，最高涨到75m，实现110倍收益。</p>
+							</div>
+							<div class="example-item">
+								<h5>推特刮刀：</h5>
+								<p>推特一发CA，一秒内自动买入，速度超快，抢占先机。</p>
+							</div>
+							<div class="example-item">
+								<h5>跟单交易：</h5>
+								<p>设置跟单地址，自动跟随高手买卖，复制成功策略。</p>
+							</div>
+						</div>
+						
+						<p>
+							<strong>特色优势：</strong>Bloom刮刀的最大优势是速度快、功能全、操作简单。支持多平台监控，自动买入卖出，配合预设策略实现完全自动化交易。即使不在线也不会错过大金狗。
+						</p>
+						<div class="btn-group">
+							<CallToAction href="https://t.me/BloomSolana_bot" target="_blank">
+								访问 Bloom SOL
+							</CallToAction>
+							<CallToAction href="https://t.me/BloomSmartChain_bot" target="_blank">
+								访问 Bloom BSC
+							</CallToAction>
+							<CallToAction href="https://www.bloombot.app/" target="_blank">
+								访问 Bloom 官网
+							</CallToAction>
+						</div>
+						
+						<!-- Bloom 截图展示 -->
+						<div class="tool-screenshot">
+							<Image 
+								src={bloomScreenshot1} 
+								alt="Bloom插件截图1 - 显示TG刮刀设置界面" 
+								loading="lazy" 
+								decoding="async"
+								class="screenshot-img"
+							/>
+							<p class="screenshot-caption">Bloom插件展示1 - TG刮刀设置界面</p>
+						</div>
+						
+						<div class="tool-screenshot">
+							<Image 
+								src={bloomScreenshot2} 
+								alt="Bloom插件截图2 - 显示谷歌插件和参数设置" 
+								loading="lazy" 
+								decoding="async"
+								class="screenshot-img"
+							/>
+							<p class="screenshot-caption">Bloom插件展示2 - 谷歌插件和参数设置</p>
+						</div>
+						
+						<div class="tool-screenshot">
+							<Image 
+								src={bloomScreenshot3} 
+								alt="Bloom插件截图3 - 显示刮刀浮窗和快捷买入" 
+								loading="lazy" 
+								decoding="async"
+								class="screenshot-img"
+							/>
+							<p class="screenshot-caption">Bloom插件展示3 - 刮刀浮窗和快捷买入</p>
+						</div>
+					</div>
+
+					<div class="tool-section">
+						<h3>Ave - 聪明钱追踪专家</h3>
+						<p><strong>推荐指数：⭐⭐⭐⭐</strong></p>
+						<p>
+							<strong>简介：</strong>Ave在中文区用户中提到的比较少，但它是早期接入支持单独筛选Four发射代币的行情看板之一。在TST行情的时候，很多用户都是用Ave来扫链。
+						</p>
+						<p>
+							<strong>核心优势：</strong>
+						</p>
+						<ul>
+							<li><strong>聪明钱地址库</strong>：平台有自己的聪明钱地址库</li>
+							<li><strong>Smart Buy/Sell提示</strong>：提供智能买卖提示功能</li>
+							<li><strong>用户体验优化</strong>：针对BNB和Four做了很多用户体验上的优化</li>
+						</ul>
+						<p>
+							<strong>适用场景：</strong>这个功能对于追求快进快出的交易者来说有一定的参考意义，特别适合短线操作。
+						</p>
+						<div class="btn-group">
+							<CallToAction href="https://ave.ai" target="_blank">
+								访问 Ave
+							</CallToAction>
+						</div>
+						
+						<!-- Ave 截图展示 -->
+						<div class="tool-screenshot">
+							<Image 
+								src={aveScreenshot} 
+								alt="Ave界面截图 - 显示聪明钱追踪和Smart Buy/Sell提示" 
+								loading="lazy" 
+								decoding="async"
+								class="screenshot-img"
+							/>
+							<p class="screenshot-caption">Ave界面展示 - 聪明钱追踪功能</p>
+						</div>
+					</div>
+
+					<h2 class="post-title" id="monitoring-tools">🔍 链上监控</h2>
+
+					<div class="tool-section">
+						<h3>Arkham - 专业链上情报分析平台</h3>
+						<p><strong>推荐指数：⭐⭐⭐⭐⭐</strong></p>
+						<p>
+							<strong>简介：</strong>Arkham是领先的链上情报分析平台，提供多链区块浏览器、实体标签系统、图谱可视化等强大功能，帮助用户深度分析链上数据和资金流向。
+						</p>
+						
+						<div class="feature-table">
+							<h4>Arkham 功能总览：</h4>
+							<table>
+								<thead>
+									<tr>
+										<th>功能模块</th>
+										<th>说明</th>
+										<th>应用场景</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><strong>多链区块浏览器</strong></td>
+										<td>支持 50+ 条链，查看地址、交易、资产等</td>
+										<td>全链资产追踪、项目分析</td>
+									</tr>
+									<tr>
+										<td><strong>实体标签系统</strong></td>
+										<td>将地址与真实身份（如交易所、基金、KOL）绑定</td>
+										<td>快速识别大户、机构、项目方</td>
+									</tr>
+									<tr>
+										<td><strong>图谱可视化工具</strong></td>
+										<td>以图形方式展示地址之间的资金流动关系</td>
+										<td>揭示操盘网络、洗钱路径</td>
+									</tr>
+									<tr>
+										<td><strong>交易过滤器</strong></td>
+										<td>自定义筛选交易类型、金额、时间等</td>
+										<td>精准定位关键交易行为</td>
+									</tr>
+									<tr>
+										<td><strong>地址/实体数据库</strong></td>
+										<td>内建庞大地址库，持续更新</td>
+										<td>快速查询链上身份与历史行为</td>
+									</tr>
+									<tr>
+										<td><strong>链上警报系统</strong></td>
+										<td>设置地址/实体的资金变动提醒</td>
+										<td>实时监控大户动向、突发事件</td>
+									</tr>
+									<tr>
+										<td><strong>Arkham Intel Exchange</strong></td>
+										<td>用户可发布/购买链上情报任务</td>
+										<td>众包模式获取深度信息</td>
+									</tr>
+									<tr>
+										<td><strong>AI 分析辅助</strong></td>
+										<td>利用 AI 模型识别异常行为、聚类地址</td>
+										<td>提高分析效率与准确性</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						
+						<div class="practical-examples">
+							<h4>🔍 实战用途举例：</h4>
+							<div class="example-item">
+								<h5>识别庄家行为：</h5>
+								<p>通过图谱 + 标签 + 交易流，判断是否为控盘地址。</p>
+							</div>
+							<div class="example-item">
+								<h5>追踪项目方资金：</h5>
+								<p>监控项目方钱包是否有套现、转移、跑路迹象。</p>
+							</div>
+							<div class="example-item">
+								<h5>链上新闻验证：</h5>
+								<p>如"Matrixport 提币 4,000 BTC"，可在 Arkham 上验证地址与交易。</p>
+							</div>
+							<div class="example-item">
+								<h5>情报交易：</h5>
+								<p>在 Intel Exchange 上发布"谁是某地址背后的人"任务，获取社区协助。</p>
+							</div>
+						</div>
+						
+						<p>
+							<strong>特色优势：</strong>Arkham最大的优势是其强大的实体标签系统和图谱可视化功能，能够将复杂的链上数据转化为直观的图形展示，帮助用户快速理解资金流向和地址关系。同时支持多链分析，提供一站式的链上情报服务。
+						</p>
+						<div class="btn-group">
+							<CallToAction href="https://platform.arkhamintelligence.com" target="_blank">
+								访问 Arkham
+							</CallToAction>
+						</div>
+						
+						<!-- Arkham 截图展示 -->
+						<div class="tool-screenshot">
+							<Image 
+								src={arkhamScreenshot1} 
+								alt="Arkham界面截图1 - 显示多链区块浏览器和实体标签系统" 
+								loading="lazy" 
+								decoding="async"
+								class="screenshot-img"
+							/>
+							<p class="screenshot-caption">Arkham界面展示1 - 多链区块浏览器和实体标签系统</p>
+						</div>
+						
+						<div class="tool-screenshot">
+							<Image 
+								src={arkhamScreenshot2} 
+								alt="Arkham界面截图2 - 显示图谱可视化工具和交易过滤器" 
+								loading="lazy" 
+								decoding="async"
+								class="screenshot-img"
+							/>
+							<p class="screenshot-caption">Arkham界面展示2 - 图谱可视化工具和交易过滤器</p>
+						</div>
+					</div>
+
+					<div class="tool-section">
+						<h3>Chain.fm - 自定义监控地址</h3>
+						<p><strong>推荐指数：⭐⭐⭐⭐</strong></p>
+						<p>
+							<strong>简介：</strong>Chain.fm是由独立开发者开发的链上监控工具，核心功能就是支持用户创建自己的链上监控地址列表并分享给其它用户来关注。
+						</p>
+						<p>
+							<strong>支持链：</strong>
+						</p>
+						<ul>
+							<li>SOL链</li>
+							<li>BASE链</li>
+							<li>BNB链</li>
+						</ul>
+						<p>
+							<strong>特色功能：</strong>
+						</p>
+						<ul>
+							<li><strong>自定义监控列表</strong>：可以创建自己的监控地址列表</li>
+							<li><strong>分享功能</strong>：可以将监控列表分享给其他用户</li>
+							<li><strong>CZ地址监控</strong>：有单独监控CZ地址的频道，便于链上小白用户学习</li>
+						</ul>
+						<p>
+							<strong>优化建议：</strong>监控界面的数据展示可以更加规整，建议每个信息模板固定长度，用表格的形式展现可能会更直观。还可以加上收益回溯性测算的功能，帮助大家不断筛选监控地址。
+						</p>
+						<div class="btn-group">
+							<CallToAction href="https://chain.fm" target="_blank">
+								访问 Chain.fm
+							</CallToAction>
+						</div>
+						
+						<!-- Chain.fm 截图展示 -->
+						<div class="tool-screenshot">
+							<Image 
+								src={chainfmScreenshot} 
+								alt="Chain.fm界面截图 - 显示自定义监控地址列表" 
+								loading="lazy" 
+								decoding="async"
+								class="screenshot-img"
+							/>
+							<p class="screenshot-caption">Chain.fm界面展示 - 自定义监控地址功能</p>
+						</div>
+					</div>
+
+					<h2 class="post-title" id="twitter-plugins">🐦 Twitter插件</h2>
+
+					<div class="tool-section">
+						<h3>🚀 Frontrun - 最值得使用的免费扫链插件</h3>
+						<p><strong>推荐指数：⭐⭐⭐⭐⭐</strong></p>
+						<p>
+							<strong>简介：</strong>Frontrun是目前最值得使用的免费扫链插件之一，集成了KOL钱包标签、Alt钱包识别、CA发文追踪等多项强大功能，为Web3用户提供全方位的链上分析支持。
+						</p>
+						
+						<div class="feature-table">
+							<h4>🚀 Frontrun 插件功能总览：</h4>
+							<table>
+								<thead>
+									<tr>
+										<th>功能模块</th>
+										<th>说明</th>
+										<th>应用场景</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><strong>KOL 钱包标签数据库</strong></td>
+										<td>拥有超过 40,000 个已验证的 KOL 钱包标签</td>
+										<td>快速识别大户、项目方、操盘地址</td>
+									</tr>
+									<tr>
+										<td><strong>Alt 钱包智能识别</strong></td>
+										<td>从一个地址自动识别其所有关联钱包</td>
+										<td>追踪操盘团队、隐藏资金流</td>
+									</tr>
+									<tr>
+										<td><strong>CA（合约地址）发文追踪</strong></td>
+										<td>检测 Twitter 帐号是否发过 CA，包括改名或删推</td>
+										<td>判断是否提前预热或隐性发射</td>
+									</tr>
+									<tr>
+										<td><strong>社交链路分析</strong></td>
+										<td>识别 KOL 之间的互动和联动行为</td>
+										<td>判断是否有联合炒作或背书</td>
+									</tr>
+									<tr>
+										<td><strong>Solana 钱包数据库同步</strong></td>
+										<td>与多个平台同步标签和钱包数据</td>
+										<td>保持数据一致性，跨平台分析</td>
+									</tr>
+									<tr>
+										<td><strong>与 GMGN 等工具联动</strong></td>
+										<td>可关闭重叠功能，避免信息冗余</td>
+										<td>多工具协同使用，提升效率</td>
+									</tr>
+									<tr>
+										<td><strong>多语言支持</strong></td>
+										<td>支持中文、希伯来语等多语言翻译和界面优化</td>
+										<td>提升全球用户体验，特别是中文社区</td>
+									</tr>
+									<tr>
+										<td><strong>插件内嵌播客与内容推荐</strong></td>
+										<td>包括 Good Game Podcast 等内容</td>
+										<td>获取市场观点、KOL分析、项目解读</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						
+						<div class="practical-examples">
+							<h4>🔍 实战用途举例：</h4>
+							<div class="example-item">
+								<h5>打新前排分析：</h5>
+								<p>通过 CA 发文记录 + Alt 钱包识别，判断是否为 KOL 提前布局。</p>
+							</div>
+							<div class="example-item">
+								<h5>链上资金流追踪：</h5>
+								<p>识别某地址是否为操盘团队一员，是否有隐藏钱包。</p>
+							</div>
+							<div class="example-item">
+								<h5>社媒情绪分析：</h5>
+								<p>结合推文、互动、删推记录，判断项目热度与操盘意图。</p>
+							</div>
+						</div>
+						<div class="btn-group">
+							<CallToAction href="https://frontrun.pro" target="_blank">
+								访问 Frontrun
+							</CallToAction>
+						</div>
+						
+						<!-- Frontrun 视频展示 -->
+						<div class="tool-video">
+							<video 
+								controls 
+								preload="metadata"
+								class="video-player"
+							>
+								<source src={frontrunVideo} type="video/mp4" />
+								您的浏览器不支持视频播放。
+							</video>
+							<p class="video-caption">Frontrun插件演示视频 - 完整功能展示</p>
+						</div>
+					</div>
+
+					<div class="tool-section">
+						<h3>MemeRadar - AI抓庄分析神器</h3>
+						<p><strong>推荐指数：⭐⭐⭐⭐⭐</strong></p>
+						<p>
+							<strong>简介：</strong>MemeRadar是一款集成了AI抓庄分析、新钱包识别、异常交易检测等多项功能的Twitter插件，为Web3用户提供全方位的链上分析支持。
+						</p>
+						
+						<div class="feature-table">
+							<h4>核心功能模块：</h4>
+							<table>
+								<thead>
+									<tr>
+										<th>功能模块</th>
+										<th>说明</th>
+										<th>典型用途</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><strong>AI 抓庄分析</strong></td>
+										<td>利用 AI 模型识别庄家吸筹、洗盘、拉盘、出货等阶段</td>
+										<td>判断买入/卖出时机，识别操盘行为</td>
+									</tr>
+									<tr>
+										<td><strong>新钱包识别</strong></td>
+										<td>自动标红异常新地址，识别潜在庄家</td>
+										<td>监控新钱包是否参与操盘</td>
+									</tr>
+									<tr>
+										<td><strong>异常交易检测</strong></td>
+										<td>识别 0 成本撸币、对敲等异常行为</td>
+										<td>过滤非正常交易，防止被割</td>
+									</tr>
+									<tr>
+										<td><strong>地址行为相似性分析</strong></td>
+										<td>识别老庄惯用手法，聚类分析</td>
+										<td>找出操盘团队或关联地址</td>
+									</tr>
+									<tr>
+										<td><strong>地址标签系统</strong></td>
+										<td>自建数据库标签，提高识别准确率</td>
+										<td>快速判断地址身份和风险</td>
+									</tr>
+									<tr>
+										<td><strong>社媒监控功能</strong></td>
+										<td>监控推特上的关键 KOL、项目方动态</td>
+										<td>把握市场情绪和潜在热点</td>
+									</tr>
+									<tr>
+										<td><strong>链上看板集成</strong></td>
+										<td>接入币安扫链、MemeRush 等链上数据源</td>
+										<td>快速查看新币、即将发射币、外盘币等</td>
+									</tr>
+									<tr>
+										<td><strong>插件内测功能</strong></td>
+										<td>提供激活码参与内测，体验新功能</td>
+										<td>抢先使用 AI 抓庄等高级功能</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						
+						<p>
+							<strong>特色优势：</strong>MemeRadar最大的亮点是其AI抓庄分析功能，能够通过机器学习算法识别庄家的操盘行为，帮助用户更好地判断买卖时机。同时集成了多种数据源，提供一站式的链上分析体验。
+						</p>
+						<div class="btn-group">
+							<CallToAction href="https://memeradar.ai" target="_blank">
+								访问 MemeRadar
+							</CallToAction>
+						</div>
+						
+						<!-- MemeRadar 截图展示 -->
+						<div class="tool-screenshot">
+							<Image 
+								src={memeradarScreenshot1} 
+								alt="MemeRadar界面截图1 - 显示AI抓庄分析功能" 
+								loading="lazy" 
+								decoding="async"
+								class="screenshot-img"
+							/>
+							<p class="screenshot-caption">MemeRadar界面展示1 - AI抓庄分析功能</p>
+						</div>
+						
+						<div class="tool-screenshot">
+							<Image 
+								src={memeradarScreenshot2} 
+								alt="MemeRadar界面截图2 - 显示新钱包识别和异常交易检测" 
+								loading="lazy" 
+								decoding="async"
+								class="screenshot-img"
+							/>
+							<p class="screenshot-caption">MemeRadar界面展示2 - 新钱包识别和异常交易检测</p>
+						</div>
+						
+						<div class="tool-screenshot">
+							<Image 
+								src={memeradarScreenshot3} 
+								alt="MemeRadar界面截图3 - 显示地址标签系统和社媒监控" 
+								loading="lazy" 
+								decoding="async"
+								class="screenshot-img"
+							/>
+							<p class="screenshot-caption">MemeRadar界面展示3 - 地址标签系统和社媒监控</p>
+						</div>
+					</div>
+
+					<div class="tips" id="usage-tips">
+						<h3>💡 使用建议</h3>
+						
+						<h4>新手入门：</h4>
+						<ol>
+							<li>从GMGN开始，熟悉基本的扫链操作</li>
+							<li>安装Frontrun插件，体验地址标记功能</li>
+							<li>使用Chain.fm监控一些知名地址</li>
+						</ol>
+
+						<h4>进阶使用：</h4>
+						<ol>
+							<li>结合Ave的聪明钱提示进行交易决策</li>
+							<li>使用MemeRadar的AI抓庄分析识别操盘行为</li>
+							<li>建立自己的监控地址库</li>
+						</ol>
+
+						<h4>安全提醒：</h4>
+						<ul>
+							<li>永远不要点击可疑链接</li>
+							<li>验证合约地址的真实性</li>
+							<li>使用多个工具交叉验证信息</li>
+							<li>保持理性，不要FOMO</li>
+						</ul>
+					</div>
+
+					<div class="conclusion" id="summary">
+						<h3>🎯 总结</h3>
+						<p>
+							链上扫链工具是Web3用户必备的武器库。每个工具都有其独特的优势和使用场景：
+						</p>
+						<ul>
+							<li><strong>GMGN</strong>：适合Meme币交易和项目发现</li>
+							<li><strong>Bloom</strong>：适合自动交易和刮刀操作</li>
+							<li><strong>Ave</strong>：适合聪明钱追踪和短线交易</li>
+							<li><strong>Arkham</strong>：适合深度分析和情报收集</li>
+							<li><strong>Chain.fm</strong>：适合自定义监控和地址管理</li>
+							<li><strong>MemeRadar</strong>：适合AI抓庄分析和风险识别</li>
+							<li><strong>Frontrun</strong>：适合综合分析和地址标记</li>
+						</ul>
+						<p>
+							建议根据自己的需求选择合适的工具组合，并持续关注工具的更新和优化。记住，工具只是辅助，最终的投资决策还是要基于自己的判断和风险承受能力。
+						</p>
+						<p style="background: #e8f5e8; padding: 1rem; border-radius: 6px; border-left: 4px solid #28a745;">
+							<strong>💡 提示：</strong> 这些工具都在不断更新迭代，建议定期关注官方动态，获取最新功能和使用技巧。
+						</p>
+					</div>
+				</div>
+			</section>
+		</main>
+	</div>
+</DetailPostLayout>
+
+<style>
+	/* 侧边目录样式 */
+	.table-of-contents {
+		position: fixed;
+		top: 50%;
+		right: 2rem;
+		transform: translateY(-50%);
+		width: 200px;
+		background: #ffffff;
+		border: 1px solid #e5e7eb;
+		border-radius: 12px;
+		padding: 1rem;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+		z-index: 100;
+		max-height: 60vh;
+		overflow-y: auto;
+	}
+
+	.table-of-contents h3 {
+		font-size: 1.1em;
+		margin: 0 0 1rem 0;
+		color: #000000;
+		font-weight: 600;
+		border-bottom: 2px solid #e5e7eb;
+		padding-bottom: 0.5rem;
+	}
+
+	.table-of-contents nav {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.toc-link {
+		display: block;
+		padding: 0.5rem 0.75rem;
+		color: #6b7280;
+		text-decoration: none;
+		border-radius: 6px;
+		transition: all 0.2s ease;
+		font-size: 0.9em;
+		line-height: 1.4;
+	}
+
+	.toc-link:hover {
+		background: #f3f4f6;
+		color: #374151;
+	}
+
+	.toc-link:active,
+	.toc-link.active {
+		background: #3b82f6;
+		color: #ffffff;
+	}
+
+	/* 响应式设计 */
+	@media (max-width: 1200px) {
+		.table-of-contents {
+			display: none;
+		}
+	}
+
+	.lead {
+		font-size: 1.1em;
+		line-height: 1.8;
+		color: #1f2937;
+		margin: 2rem 0;
+		padding: 1.5rem;
+		background: #f8f9fa;
+		border-left: 4px solid #3b82f6;
+		border-radius: 6px;
+	}
+
+	.tool-section {
+		margin: 2rem 0;
+		padding: 1.5rem;
+		background: #ffffff;
+		border-radius: 12px;
+		border: 1px solid #e5e7eb;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+		transition: all 0.3s ease;
+	}
+
+	.tool-section:hover {
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+		border-color: #3b82f6;
+	}
+
+	.tool-section h3 {
+		font-size: 1.5em;
+		margin-bottom: 0.5rem;
+		color: #000000;
+		font-weight: 600;
+	}
+
+	.tool-section p {
+		margin: 0.5rem 0;
+		line-height: 1.6;
+		color: #1f2937;
+	}
+
+	.tool-section ul, .tips ul, .tips ol {
+		margin: 1rem 0;
+		padding-left: 1.5rem;
+		line-height: 1.8;
+	}
+
+	.tool-section li, .tips li {
+		margin: 0.5rem 0;
+		color: #1f2937;
+	}
+
+	.btn-group {
+		margin-top: 1rem;
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+	}
+
+	.tips, .conclusion {
+		margin: 2rem 0;
+		padding: 1.5rem;
+		background: #f8f9fa;
+		border-radius: 12px;
+		border: 1px solid #e5e7eb;
+	}
+
+	.tips h3 {
+		font-size: 1.3em;
+		margin: 1.5rem 0 1rem 0;
+		color: #000000;
+		font-weight: 600;
+	}
+
+	.tips h4 {
+		font-size: 1.1em;
+		margin: 1rem 0 0.5rem 0;
+		color: #374151;
+		font-weight: 600;
+	}
+
+	h2.post-title {
+		font-size: 1.8em;
+		margin: 3rem 0 1.5rem 0;
+		color: #000000;
+		font-weight: 700;
+		padding-bottom: 0.5rem;
+		border-bottom: 2px solid #e5e7eb;
+	}
+
+	/* 图片样式 */
+	.tool-screenshot {
+		margin: 1.5rem 0;
+		text-align: center;
+	}
+
+	.screenshot-img {
+		max-width: 100%;
+		height: auto;
+		border-radius: 12px;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+		border: 1px solid #e5e7eb;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.screenshot-img:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+	}
+
+	.screenshot-caption {
+		margin-top: 0.75rem;
+		font-size: 0.9em;
+		color: #6b7280;
+		font-style: italic;
+		text-align: center;
+	}
+
+	/* 功能表格样式 */
+	.feature-table {
+		margin: 1.5rem 0;
+		overflow-x: auto;
+	}
+
+	.feature-table table {
+		width: 100%;
+		border-collapse: collapse;
+		background: #ffffff;
+		border-radius: 8px;
+		overflow: hidden;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	}
+
+	.feature-table th {
+		background: #3b82f6;
+		color: #ffffff;
+		padding: 1rem;
+		text-align: left;
+		font-weight: 600;
+		font-size: 0.9em;
+	}
+
+	.feature-table td {
+		padding: 1rem;
+		border-bottom: 1px solid #e5e7eb;
+		vertical-align: top;
+		font-size: 0.9em;
+		line-height: 1.5;
+	}
+
+	.feature-table tr:last-child td {
+		border-bottom: none;
+	}
+
+	.feature-table tr:nth-child(even) {
+		background: #f8f9fa;
+	}
+
+	.feature-table tr:hover {
+		background: #f1f5f9;
+	}
+
+	/* 视频样式 */
+	.tool-video {
+		margin: 1.5rem 0;
+		text-align: center;
+	}
+
+	.video-player {
+		width: 100%;
+		max-width: 800px;
+		height: auto;
+		border-radius: 12px;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+		border: 1px solid #e5e7eb;
+		background: #000000;
+	}
+
+	.video-player:focus {
+		outline: 2px solid #3b82f6;
+		outline-offset: 2px;
+	}
+
+	.video-caption {
+		margin-top: 0.75rem;
+		font-size: 0.9em;
+		color: #6b7280;
+		font-style: italic;
+		text-align: center;
+	}
+
+	/* 实战用途举例样式 */
+	.practical-examples {
+		margin: 1.5rem 0;
+		padding: 1.5rem;
+		background: #f8f9fa;
+		border-radius: 12px;
+		border: 1px solid #e5e7eb;
+	}
+
+	.practical-examples h4 {
+		margin: 0 0 1rem 0;
+		color: #000000;
+		font-weight: 600;
+		font-size: 1.1em;
+	}
+
+	.example-item {
+		margin: 1rem 0;
+		padding: 1rem;
+		background: #ffffff;
+		border-radius: 8px;
+		border-left: 4px solid #3b82f6;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+	}
+
+	.example-item h5 {
+		margin: 0 0 0.5rem 0;
+		color: #1f2937;
+		font-weight: 600;
+		font-size: 1em;
+	}
+
+	.example-item p {
+		margin: 0;
+		color: #4b5563;
+		line-height: 1.6;
+		font-size: 0.95em;
+	}
+
+	/* 响应式设计 */
+	@media (max-width: 768px) {
+		.tool-section, .tips, .conclusion {
+			padding: 1rem;
+		}
+		
+		.lead {
+			padding: 1rem;
+			font-size: 1em;
+		}
+
+		.tool-screenshot {
+			margin: 1rem 0;
+		}
+
+		.screenshot-caption {
+			font-size: 0.85em;
+		}
+
+		.tool-video {
+			margin: 1rem 0;
+		}
+
+		.video-player {
+			max-width: 100%;
+		}
+
+		.video-caption {
+			font-size: 0.85em;
+		}
+
+		.practical-examples {
+			padding: 1rem;
+		}
+
+		.example-item {
+			padding: 0.75rem;
+		}
+
+		.example-item h5 {
+			font-size: 0.95em;
+		}
+
+		.example-item p {
+			font-size: 0.9em;
+		}
+	}
+</style>

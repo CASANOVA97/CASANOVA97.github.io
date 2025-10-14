@@ -9,5 +9,16 @@
 		"tag": "工具导航",
 		"date": "2025-01-10",
 		"mark": true
+	},
+	{
+		"id": "2",
+		"cover": "/assets/cover/cover-2.jpg",
+		"title": "扫链插件指南",
+		"desc": "详细介绍GMGN、Ave、Chain.fm、PumpScam、Frontrun等主流链上扫链工具和Twitter插件，帮助Web3用户提升链上分析效率",
+		"detail": "/detail/chain-scanning-tools",
+		"category": "recommend,research,dex-tools,cex-tools",
+		"tag": "工具导航",
+		"date": "2025-01-11",
+		"mark": true
 	}
 ]
