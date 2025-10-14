@@ -36,7 +36,7 @@ interface SeoTdk {
 }
 // SEO TDK 首页
 export const homeTdk: SeoTdk = {
-	title: '行止的个人网站 - Web3创业者 & MarketMaker',
+	title: '行止 MarketMaker',
 	description: 'Founder of CASANOVA, MarketMaker, 分享Web3、加密货币与区块链相关的见解和项目',
 	keywords: '行止,Web3,CASANOVA,MarketMaker,加密货币,区块链'
 }
