@@ -1,0 +1,748 @@
+---
+import DetailPostLayout from "../../layouts/DetailPostLayout.astro";
+import DetailHeader from "../../components/DetailHeader.astro";
+import CallToAction from "../../components/CallToAction.astro";
+import { Image } from "astro:assets";
+// 导入工具截图和视频
+import debotScreenshot1 from "../../assets/projects/debot-screenshot1.jpg";
+import debotScreenshot2 from "../../assets/projects/debot-screenshot2.jpg";
+import debotScreenshot3 from "../../assets/projects/debot-screenshot3.jpg";
+import debotScreenshot4 from "../../assets/projects/debot-screenshot4.jpg";
+import debotScreenshot5 from "../../assets/projects/debot-screenshot5.jpg";
+import aiSignalVideo from "../../../video/AI信号页面.mp4";
+import scanningInterfaceVideo from "../../../video/行情看盘功能介绍.mp4";
+import limitOrderVideo from "../../../video/如何使用限价单交易&自动止盈止损.mp4";
+---
+
+<DetailPostLayout
+	title="DeBot扫链工具完全指南 | 行止的工具推荐"
+	description="详细介绍DeBot扫链工具的使用方法、AI信号监控、钱包监控、自动交易等核心功能，帮助Web3用户提升链上分析效率"
+	keywords="DeBot,扫链工具,AI信号,钱包监控,自动交易,Web3工具,链上分析,行止"
+>
+	<div class="post">
+		<main class="post-wrapper">
+			<DetailHeader
+				tag="工具推荐"
+				description="">
+				<h1 class="font-type">
+					DeBot扫链工具完全指南
+				</h1>
+			</DetailHeader>
+
+			<!-- 侧边目录 -->
+			<aside class="table-of-contents">
+				<div class="toc-sticky">
+					<h3>📑 目录</h3>
+					<nav>
+						<a href="#debot-intro" class="toc-link">🚀 DeBot简介</a>
+						<a href="#core-features" class="toc-link">⚡ 核心功能</a>
+						<a href="#ai-signals" class="toc-link">🤖 AI信号</a>
+						<a href="#scanning-interface" class="toc-link">🔍 扫链界面</a>
+						<a href="#kline-analysis" class="toc-link">📊 K线分析</a>
+						<a href="#auto-trading" class="toc-link">📈 自动交易</a>
+						<a href="#wallet-monitoring" class="toc-link">👛 钱包监控</a>
+						<a href="#practical-tips" class="toc-link">💡 实战技巧</a>
+						<a href="#summary" class="toc-link">🎯 总结</a>
+					</nav>
+				</div>
+			</aside>
+
+			<section>
+				<div class="content">
+					<div class="intro">
+						<p class="lead">
+							在Web3的世界里，扫链工具就是你的眼睛和耳朵。DeBot作为目前最专业的扫链平台之一，集成了AI信号、钱包监控、自动交易等多项强大功能，让链上分析变得简单高效。
+						</p>
+						<p class="lead" style="background: #fff3cd; border-left-color: #ffc107;">
+							<strong>💡 使用建议：</strong>DeBot最大的优势在于其AI信号和钱包监控功能。建议新手从AI信号开始，熟悉后再配置钱包监控和自动交易策略。记住，工具只是辅助，最终的投资决策还是要基于自己的判断。
+						</p>
+					</div>
+
+					<h2 class="post-title" id="debot-intro">🚀 DeBot简介</h2>
+					
+					<div class="tool-section">
+						<h3>DeBot - 专业扫链平台</h3>
+						<p><strong>推荐指数：⭐⭐⭐⭐⭐</strong></p>
+						<p>
+							<strong>简介：</strong>DeBot是目前市面上最专业和功能最全面的扫链平台之一，支持多链监控、AI信号推送、钱包监控、自动交易等多项功能，为Web3用户提供一站式的链上分析服务。
+						</p>
+						
+						<div class="feature-table">
+							<h4>DeBot 核心优势：</h4>
+							<table>
+								<thead>
+									<tr>
+										<th>功能模块</th>
+										<th>说明</th>
+										<th>应用场景</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><strong>AI信号推送</strong></td>
+										<td>智能识别金狗项目，详细分析项目类型、传播性质等</td>
+										<td>替代传统扫链，发现早期机会</td>
+									</tr>
+									<tr>
+										<td><strong>钱包监控</strong></td>
+										<td>单钱包&多钱包&EVM链全通知，支持TG推送</td>
+										<td>监控聪明钱动向，跟单操作</td>
+									</tr>
+									<tr>
+										<td><strong>自动交易</strong></td>
+										<td>个人地址库策略跟单 & 信号跟单</td>
+										<td>24小时自动交易，不错过机会</td>
+									</tr>
+									<tr>
+										<td><strong>限价挂单</strong></td>
+										<td>止盈止损&移动止盈止损</td>
+										<td>风险控制，自动化交易</td>
+									</tr>
+									<tr>
+										<td><strong>推特监控</strong></td>
+										<td>监控KOL动态，支持TG推送和app弹窗</td>
+										<td>把握市场情绪，获取第一手信息</td>
+									</tr>
+									<tr>
+										<td><strong>三端同步</strong></td>
+										<td>支持app、TG、PC网页端三端同步</td>
+										<td>随时随地监控和交易</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						
+						<p>
+							<strong>特色优势：</strong>DeBot最大的优势在于其AI信号功能，能够智能识别金狗项目并详细分析项目类型、传播性质、推特改名次数、老鼠仓等关键信息。同时支持多链监控，包括SOL、BSC、X链等主流链。
+						</p>
+						<div class="btn-group">
+							<CallToAction href="https://debot.ai" target="_blank">
+								访问 DeBot
+							</CallToAction>
+							<CallToAction href="https://inv.debot.ai/r/263450" target="_blank">
+								注册送Pro会员
+							</CallToAction>
+						</div>
+					</div>
+
+					<h2 class="post-title" id="core-features">⚡ 核心功能</h2>
+
+					<div class="tool-section" id="ai-signals">
+						<h3>1. AI信号 - 智能金狗识别</h3>
+						<p><strong>推荐指数：⭐⭐⭐⭐⭐</strong></p>
+						<p>
+							<strong>简介：</strong>DeBot的AI信号功能是其最大亮点，能够及时发现聪明钱买入的热点叙事，并通过信号提醒功能实时推送。同时提供每日热点榜单，让你一目了然地浏览今天的各种叙事。
+						</p>
+						
+						<div class="practical-examples">
+							<h4>🔍 实战用途举例：</h4>
+							<div class="example-item">
+								<h5>热点叙事发现：</h5>
+								<p>AI信号能够及时发现聪明钱买入的热点叙事，让你第一时间把握市场机会。</p>
+							</div>
+							<div class="example-item">
+								<h5>信号提醒系统：</h5>
+								<p>通过信号提醒功能，金狗会反反复复提醒喊你催你上车，不用再看繁琐的信息流。</p>
+							</div>
+							<div class="example-item">
+								<h5>每日热点榜单：</h5>
+								<p>查看每天的热点榜单，大致浏览今天的各种叙事，快速了解市场动态。</p>
+							</div>
+							<div class="example-item">
+								<h5>详细项目分析：</h5>
+								<p>随时点击K线查看筹码分析，了解项目类型、传播性质等关键信息。</p>
+							</div>
+						</div>
+						
+						<!-- AI信号视频展示 -->
+						<div class="tool-video">
+							<video 
+								controls 
+								preload="metadata"
+								class="video-player"
+							>
+								<source src={aiSignalVideo} type="video/mp4" />
+								您的浏览器不支持视频播放。
+							</video>
+							<p class="video-caption">DeBot AI信号功能演示视频 - 智能金狗识别和热点叙事发现</p>
+						</div>
+					</div>
+
+					<div class="tool-section" id="scanning-interface">
+						<h3>2. 扫链界面 - 个性化排版</h3>
+						<p><strong>推荐指数：⭐⭐⭐⭐⭐</strong></p>
+						<p>
+							<strong>简介：</strong>DeBot的扫链界面支持个性化排版，这是其独特优势。通过四个核心模块的完美结合，能够大大增加胜率。这种排版也只有DeBot才有，能够把战壕的三个面板都拉出来，这一点非常好！
+						</p>
+						
+						<div class="practical-examples">
+							<h4>🔍 四大核心模块：</h4>
+							<div class="example-item">
+								<h5>新创建模块：</h5>
+								<p>能够及时地发现新叙事，第一时间把握市场机会。</p>
+							</div>
+							<div class="example-item">
+								<h5>即将打满模块：</h5>
+								<p>根据自己的筛选条件，能够发现比较看好的叙事或者是阴谋集团，抓紧跟车。</p>
+							</div>
+							<div class="example-item">
+								<h5>已开盘模块：</h5>
+								<p>把握外盘的机会，进一步跨向下一个阶段。</p>
+							</div>
+							<div class="example-item">
+								<h5>钱包信号模块：</h5>
+								<p>能够及时发现聪明钱的动向，DeBot的钱包监控能够多链监控，实时发现资金的动向更加细致。</p>
+							</div>
+						</div>
+						
+						<!-- 扫链界面视频展示 -->
+						<div class="tool-video">
+							<video 
+								controls 
+								preload="metadata"
+								class="video-player"
+							>
+								<source src={scanningInterfaceVideo} type="video/mp4" />
+								您的浏览器不支持视频播放。
+							</video>
+							<p class="video-caption">DeBot扫链界面功能介绍视频 - 个性化排版和四大核心模块展示</p>
+						</div>
+					</div>
+
+
+					<div class="tool-section" id="auto-trading">
+						<h3>4. 自动交易 - 跟单策略</h3>
+						<p><strong>推荐指数：⭐⭐⭐⭐⭐</strong></p>
+						<p>
+							<strong>简介：</strong>DeBot的自动交易功能是其核心优势之一，支持个人地址库策略跟单和信号跟单，可以配置不同的策略进行跟单。
+						</p>
+						
+						<div class="practical-examples">
+							<h4>🔍 实战用途举例：</h4>
+							<div class="example-item">
+								<h5>多钱包跟单：</h5>
+								<p>可以多个钱包配置跟单策略，再过滤，再进行跟单，目前国内并没有几家做出这样的功能。</p>
+							</div>
+							<div class="example-item">
+								<h5>AI信号跟单：</h5>
+								<p>AI信号跟单还有回测工具，可以测准确率和盈利率，平台做得更细心和完善。</p>
+							</div>
+							<div class="example-item">
+								<h5>策略模板：</h5>
+								<p>提供凌晨蹲金狗策略、全天稳健策略等经典模板，一键应用。</p>
+							</div>
+						</div>
+						
+						<div class="tool-screenshot">
+							<Image 
+								src={debotScreenshot5} 
+								alt="DeBot自动交易配置界面" 
+								loading="lazy" 
+								decoding="async"
+								class="screenshot-img"
+							/>
+							<p class="screenshot-caption">DeBot自动交易配置界面</p>
+						</div>
+					</div>
+
+					<div class="tool-section">
+						<h3>5. 限价挂单 - 移动止盈止损</h3>
+						<p><strong>推荐指数：⭐⭐⭐⭐</strong></p>
+						<p>
+							<strong>简介：</strong>DeBot的限价挂单功能不仅支持常规的止盈止损，还提供独家的移动止盈止损功能，既可以选择默认的多种策略，也可以自定义自己的策略。
+						</p>
+						
+						<div class="practical-examples">
+							<h4>🔍 实战用途举例：</h4>
+							<div class="example-item">
+								<h5>移动止盈止损：</h5>
+								<p>独家功能，既可以选择默认的多种策略，也可以自定义自己的策略。</p>
+							</div>
+							<div class="example-item">
+								<h5>风险控制：</h5>
+								<p>自动化交易中的风险控制，保护利润并限制损失。</p>
+							</div>
+						</div>
+						
+						<!-- 限价挂单视频展示 -->
+						<div class="tool-video">
+							<video 
+								controls 
+								preload="metadata"
+								class="video-player"
+							>
+								<source src={limitOrderVideo} type="video/mp4" />
+								您的浏览器不支持视频播放。
+							</video>
+							<p class="video-caption">DeBot限价挂单功能介绍视频 - 如何使用限价单交易&自动止盈止损</p>
+						</div>
+					</div>
+
+					<div class="tool-section">
+						<h3>6. 推特监控 - 降低噪音</h3>
+						<p><strong>推荐指数：⭐⭐⭐⭐</strong></p>
+						<p>
+							<strong>简介：</strong>DeBot的推特监控功能做得相对完善，监控的类型可以自由过滤，可以在最大程度上降低很多噪音。
+						</p>
+						
+						<div class="practical-examples">
+							<h4>🔍 实战用途举例：</h4>
+							<div class="example-item">
+								<h5>KOL监控：</h5>
+								<p>监控你关注的推特博主，当他发表内容、转发消息，或修改头像、修改签名时，会收到通知。</p>
+							</div>
+							<div class="example-item">
+								<h5>噪音过滤：</h5>
+								<p>像BSC链币少又更多靠大表哥去奶的，推特监控就是最大的优势。</p>
+							</div>
+							<div class="example-item">
+								<h5>多端推送：</h5>
+								<p>支持PC、APP、TG和钉钉等推送，三端同步。</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="tool-section" id="wallet-monitoring">
+						<h3>7. 钱包监控 - 专业级监控系统</h3>
+						<p><strong>推荐指数：⭐⭐⭐⭐⭐</strong></p>
+						<p>
+							<strong>简介：</strong>DeBot的钱包监控功能远超其他平台，不仅对监控地址的买卖动态进行监控推送，还提供丰富的过滤条件和多钱包监控功能。
+						</p>
+						
+						<div class="practical-examples">
+							<h4>🔍 实战用途举例：</h4>
+							<div class="example-item">
+								<h5>大表哥地址监控：</h5>
+								<p>将大表哥地址添加进DeBot的钱包分组中，配置钱包告警，实时监控其买卖动向。</p>
+							</div>
+							<div class="example-item">
+								<h5>多钱包同时监控：</h5>
+								<p>在指定时间段内，对指定的钱包分组都进行通知，专业用户可发挥更大作用。</p>
+							</div>
+							<div class="example-item">
+								<h5>多链支持：</h5>
+								<p>支持EVM链全支持，同一钱包地址不需要创建多条链的监控。</p>
+							</div>
+						</div>
+						
+						<p>
+							<strong>配置步骤：</strong>
+						</p>
+						<ol>
+							<li>将目标地址添加进DeBot的钱包分组中</li>
+							<li>选择钱包告警，配置监控条件</li>
+							<li>设置过滤条件，如交易金额、时间等</li>
+							<li>选择通知渠道，支持TG推送和app弹窗</li>
+						</ol>
+						
+						<div class="tool-screenshot">
+							<Image 
+								src={debotScreenshot1} 
+								alt="DeBot钱包监控配置界面" 
+								loading="lazy" 
+								decoding="async"
+								class="screenshot-img"
+							/>
+							<p class="screenshot-caption">DeBot钱包监控配置界面</p>
+						</div>
+					</div>
+
+
+					<h2 class="post-title" id="practical-tips">💡 实战技巧</h2>
+
+					<div class="tips">
+						<h3>🎯 使用建议</h3>
+						
+						<h4>四大核心模块使用策略：</h4>
+						<ol>
+							<li><strong>新创建模块</strong>：及时地发现新叙事，第一时间把握市场机会</li>
+							<li><strong>即将打满模块</strong>：根据自己的筛选条件，发现比较看好的叙事或者是阴谋集团，抓紧跟车</li>
+							<li><strong>已开盘模块</strong>：把握外盘的机会，进一步跨向下一个阶段</li>
+							<li><strong>钱包信号模块</strong>：及时发现聪明钱的动向，多链监控实时发现资金的动向更加细致</li>
+						</ol>
+
+						<h4>新手入门：</h4>
+						<ol>
+							<li>从AI信号开始，熟悉平台功能</li>
+							<li>配置钱包监控，关注大表哥等KOL地址</li>
+							<li>设置推特监控，降低信息噪音</li>
+							<li>利用个性化排版，把战壕的三个面板都拉出来</li>
+						</ol>
+
+						<h4>进阶使用：</h4>
+						<ol>
+							<li>配置自动交易策略，实现24小时跟单</li>
+							<li>使用移动止盈止损，控制风险</li>
+							<li>结合多钱包监控，提高成功率</li>
+							<li>通过K线界面的交易分析，及时分析庄家的动向</li>
+						</ol>
+
+						<h4>专业技巧：</h4>
+						<ol>
+							<li>利用回测工具测试策略准确率</li>
+							<li>配置多级过滤条件，精准定位机会</li>
+							<li>使用三端同步，随时随地操作</li>
+							<li>通过四大模块的完美结合，大大增加胜率</li>
+						</ol>
+					</div>
+
+					<div class="conclusion" id="summary">
+						<h3>🎯 总结</h3>
+						<p>
+							DeBot作为目前最专业的扫链平台之一，其核心优势在于：
+						</p>
+						<ul>
+							<li><strong>AI信号</strong>：智能识别金狗项目，及时发现聪明钱买入的热点叙事，提供信号提醒和每日热点榜单</li>
+							<li><strong>个性化扫链界面</strong>：四大核心模块完美结合，能够把战壕的三个面板都拉出来，这种排版也只有DeBot才有</li>
+							<li><strong>钱包监控</strong>：专业级监控系统，支持多钱包和多链，实时发现资金的动向更加细致</li>
+							<li><strong>K线交易分析</strong>：通过资金动向、TOP盈亏排行、24h买入卖出等数据，及时分析庄家的动向</li>
+							<li><strong>自动交易</strong>：跟单策略丰富，支持回测功能</li>
+							<li><strong>限价挂单</strong>：独家移动止盈止损功能</li>
+							<li><strong>推特监控</strong>：降低噪音，精准获取信息</li>
+							<li><strong>三端同步</strong>：PC、APP、TG三端同步</li>
+						</ul>
+						<p>
+							通过四大核心模块的完美结合，能够大大增加胜率。对于喜欢前期潜入项目的P小将来说，DeBot无疑是极大的优势。无论是买入卖出还是上链速度，体验都非常流畅。整体感觉就是：靠谱、专业、效率高。
+						</p>
+						<p style="background: #e8f5e8; padding: 1rem; border-radius: 6px; border-left: 4px solid #28a745;">
+							<strong>💡 提示：</strong> 走我链接注册的朋友送10个Pro会员，先到先得，注册好DM我即可。Pro会员可以解锁800个钱包地址监控、800个Token地址监控、20个推特用户监控等高级功能。
+						</p>
+					</div>
+				</div>
+			</section>
+		</main>
+	</div>
+</DetailPostLayout>
+
+<style>
+	/* 侧边目录样式 */
+	.table-of-contents {
+		position: fixed;
+		top: 50%;
+		right: 2rem;
+		transform: translateY(-50%);
+		width: 200px;
+		background: #ffffff;
+		border: 1px solid #e5e7eb;
+		border-radius: 12px;
+		padding: 1rem;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+		z-index: 100;
+		max-height: 60vh;
+		overflow-y: auto;
+	}
+
+	.table-of-contents h3 {
+		font-size: 1.1em;
+		margin: 0 0 1rem 0;
+		color: #000000;
+		font-weight: 600;
+		border-bottom: 2px solid #e5e7eb;
+		padding-bottom: 0.5rem;
+	}
+
+	.table-of-contents nav {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.toc-link {
+		display: block;
+		padding: 0.5rem 0.75rem;
+		color: #6b7280;
+		text-decoration: none;
+		border-radius: 6px;
+		transition: all 0.2s ease;
+		font-size: 0.9em;
+		line-height: 1.4;
+	}
+
+	.toc-link:hover {
+		background: #f3f4f6;
+		color: #374151;
+	}
+
+	.toc-link:active,
+	.toc-link.active {
+		background: #3b82f6;
+		color: #ffffff;
+	}
+
+	/* 响应式设计 */
+	@media (max-width: 1200px) {
+		.table-of-contents {
+			display: none;
+		}
+	}
+
+	.lead {
+		font-size: 1.1em;
+		line-height: 1.8;
+		color: #1f2937;
+		margin: 2rem 0;
+		padding: 1.5rem;
+		background: #f8f9fa;
+		border-left: 4px solid #3b82f6;
+		border-radius: 6px;
+	}
+
+	.tool-section {
+		margin: 2rem 0;
+		padding: 1.5rem;
+		background: #ffffff;
+		border-radius: 12px;
+		border: 1px solid #e5e7eb;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+		transition: all 0.3s ease;
+	}
+
+	.tool-section:hover {
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+		border-color: #3b82f6;
+	}
+
+	.tool-section h3 {
+		font-size: 1.5em;
+		margin-bottom: 0.5rem;
+		color: #000000;
+		font-weight: 600;
+	}
+
+	.tool-section p {
+		margin: 0.5rem 0;
+		line-height: 1.6;
+		color: #1f2937;
+	}
+
+	.tool-section ul, .tips ul, .tips ol {
+		margin: 1rem 0;
+		padding-left: 1.5rem;
+		line-height: 1.8;
+	}
+
+	.tool-section li, .tips li {
+		margin: 0.5rem 0;
+		color: #1f2937;
+	}
+
+	.btn-group {
+		margin-top: 1rem;
+		display: flex;
+		gap: 0.5rem;
+		flex-wrap: wrap;
+	}
+
+	.tips, .conclusion {
+		margin: 2rem 0;
+		padding: 1.5rem;
+		background: #f8f9fa;
+		border-radius: 12px;
+		border: 1px solid #e5e7eb;
+	}
+
+	.tips h3 {
+		font-size: 1.3em;
+		margin: 1.5rem 0 1rem 0;
+		color: #000000;
+		font-weight: 600;
+	}
+
+	.tips h4 {
+		font-size: 1.1em;
+		margin: 1rem 0 0.5rem 0;
+		color: #374151;
+		font-weight: 600;
+	}
+
+	.tips p {
+		margin: 0;
+		color: #4b5563;
+		line-height: 1.6;
+		font-size: 0.95em;
+	}
+
+	h2.post-title {
+		font-size: 1.8em;
+		margin: 3rem 0 1.5rem 0;
+		color: #000000;
+		font-weight: 700;
+		padding-bottom: 0.5rem;
+		border-bottom: 2px solid #e5e7eb;
+	}
+
+	/* 功能表格样式 */
+	.feature-table {
+		margin: 1.5rem 0;
+		overflow-x: auto;
+	}
+
+	.feature-table table {
+		width: 100%;
+		border-collapse: collapse;
+		background: #ffffff;
+		border-radius: 8px;
+		overflow: hidden;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	}
+
+	.feature-table th {
+		background: #3b82f6;
+		color: #ffffff;
+		padding: 1rem;
+		text-align: left;
+		font-weight: 600;
+		font-size: 0.9em;
+	}
+
+	.feature-table td {
+		padding: 1rem;
+		border-bottom: 1px solid #e5e7eb;
+		vertical-align: top;
+		font-size: 0.9em;
+		line-height: 1.5;
+	}
+
+	.feature-table tr:last-child td {
+		border-bottom: none;
+	}
+
+	.feature-table tr:nth-child(even) {
+		background: #f8f9fa;
+	}
+
+	.feature-table tr:hover {
+		background: #f1f5f9;
+	}
+
+	/* 图片样式 */
+	.tool-screenshot {
+		margin: 1.5rem 0;
+		text-align: center;
+	}
+
+	.screenshot-img {
+		max-width: 100%;
+		height: auto;
+		border-radius: 12px;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+		border: 1px solid #e5e7eb;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.screenshot-img:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+	}
+
+	.screenshot-caption {
+		margin-top: 0.75rem;
+		font-size: 0.9em;
+		color: #6b7280;
+		font-style: italic;
+		text-align: center;
+	}
+
+	/* 视频样式 */
+	.tool-video {
+		margin: 1.5rem 0;
+		text-align: center;
+	}
+
+	.video-player {
+		max-width: 100%;
+		height: auto;
+		border-radius: 12px;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+		border: 1px solid #e5e7eb;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.video-player:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+	}
+
+	.video-caption {
+		margin-top: 0.75rem;
+		font-size: 0.9em;
+		color: #6b7280;
+		font-style: italic;
+		text-align: center;
+	}
+
+	/* 实战用途举例样式 */
+	.practical-examples {
+		margin: 1.5rem 0;
+		padding: 1.5rem;
+		background: #f8f9fa;
+		border-radius: 12px;
+		border: 1px solid #e5e7eb;
+	}
+
+	.practical-examples h4 {
+		margin: 0 0 1rem 0;
+		color: #000000;
+		font-weight: 600;
+		font-size: 1.1em;
+	}
+
+	.example-item {
+		margin: 1rem 0;
+		padding: 1rem;
+		background: #ffffff;
+		border-radius: 8px;
+		border-left: 4px solid #3b82f6;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+	}
+
+	.example-item h5 {
+		margin: 0 0 0.5rem 0;
+		color: #1f2937;
+		font-weight: 600;
+		font-size: 1em;
+	}
+
+	.example-item p {
+		margin: 0;
+		color: #4b5563;
+		line-height: 1.6;
+		font-size: 0.95em;
+	}
+
+	/* 响应式设计 */
+	@media (max-width: 768px) {
+		.tool-section, .tips, .conclusion {
+			padding: 1rem;
+		}
+		
+		.lead {
+			padding: 1rem;
+			font-size: 1em;
+		}
+
+		.tool-screenshot {
+			margin: 1rem 0;
+		}
+
+		.screenshot-caption {
+			font-size: 0.85em;
+		}
+
+		.practical-examples {
+			padding: 1rem;
+		}
+
+		.example-item {
+			padding: 0.75rem;
+		}
+
+		.example-item h5 {
+			font-size: 0.95em;
+		}
+
+		.example-item p {
+			font-size: 0.9em;
+		}
+	}
+</style>
