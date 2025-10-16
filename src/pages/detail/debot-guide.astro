@@ -4,11 +4,6 @@ import DetailHeader from "../../components/DetailHeader.astro";
 import CallToAction from "../../components/CallToAction.astro";
 import { Image } from "astro:assets";
 // 导入工具截图和视频
-import debotScreenshot1 from "../../assets/projects/debot-screenshot1.jpg";
-import debotScreenshot2 from "../../assets/projects/debot-screenshot2.jpg";
-import debotScreenshot3 from "../../assets/projects/debot-screenshot3.jpg";
-import debotScreenshot4 from "../../assets/projects/debot-screenshot4.jpg";
-import debotScreenshot5 from "../../assets/projects/debot-screenshot5.jpg";
 import debotScreenshotSL from "../../assets/projects/debot-screenshot-sl.jpg";
 import debotGd1 from "../../assets/projects/debot-gd1.jpg";
 import debotGd2 from "../../assets/projects/debot-gd2.jpg";
@@ -22,7 +17,6 @@ import limitOrderVideo from "../../../video/如何使用限价单交易&自动�
 	title="Debot扫链指南 | 行止的工具推荐"
 	description="详细介绍DeBot扫链工具的使用方法、AI信号监控、钱包监控、自动交易等核心功能，帮助Web3用户提升链上分析效率"
 	keywords="DeBot,扫链工具,AI信号,钱包监控,自动交易,Web3工具,链上分析,行止"
-	coverImage={debotBanner}
 >
 	<div class="post">
 		<main class="post-wrapper">
@@ -507,25 +501,29 @@ import limitOrderVideo from "../../../video/如何使用限价单交易&自动�
 
 <script>
 	// 图片放大功能
-	function openImageModal(src, caption) {
+	function openImageModal(src: string, caption: string) {
 		const modal = document.getElementById('imageModal');
-		const modalImg = document.getElementById('modalImage');
+		const modalImg = document.getElementById('modalImage') as HTMLImageElement;
 		const modalCaption = document.getElementById('modalCaption');
 		
-		modal.classList.add('show');
-		modalImg.src = src;
-		modalCaption.textContent = caption;
-		
-		// 防止背景滚动
-		document.body.style.overflow = 'hidden';
+		if (modal && modalImg && modalCaption) {
+			modal.classList.add('show');
+			modalImg.src = src;
+			modalCaption.textContent = caption;
+			
+			// 防止背景滚动
+			document.body.style.overflow = 'hidden';
+		}
 	}
 
 	function closeImageModal() {
 		const modal = document.getElementById('imageModal');
-		modal.classList.remove('show');
-		
-		// 恢复背景滚动
-		document.body.style.overflow = 'auto';
+		if (modal) {
+			modal.classList.remove('show');
+			
+			// 恢复背景滚动
+			document.body.style.overflow = 'auto';
+		}
 	}
 
 	// 等待DOM加载完成后添加事件监听器
@@ -534,23 +532,26 @@ import limitOrderVideo from "../../../video/如何使用限价单交易&自动�
 		
 		// 为所有可放大的图片添加点击事件
 		document.addEventListener('click', function(e) {
-			console.log('Click detected on:', e.target);
-			console.log('Classes:', e.target.classList);
+			const target = e.target as HTMLElement;
+			if (!target) return;
+			
+			console.log('Click detected on:', target);
+			console.log('Classes:', target.classList);
 			
 			// 检查点击的元素是否是图片或者包含图片的容器
-			let imgElement = null;
+			let imgElement: HTMLImageElement | null = null;
 			let caption = '';
 			
-			if (e.target.tagName === 'IMG' && e.target.classList.contains('zoomable-image')) {
+			if (target.tagName === 'IMG' && target.classList.contains('zoomable-image')) {
 				// 直接点击图片
-				imgElement = e.target;
-				caption = e.target.getAttribute('data-caption') || e.target.alt;
-			} else if (e.target.classList.contains('tool-screenshot')) {
+				imgElement = target as HTMLImageElement;
+				caption = target.getAttribute('data-caption') || target.getAttribute('alt') || '';
+			} else if (target.classList.contains('tool-screenshot')) {
 				// 点击了图片容器，查找其中的图片
-				const img = e.target.querySelector('img.zoomable-image');
+				const img = target.querySelector('img.zoomable-image') as HTMLImageElement;
 				if (img) {
 					imgElement = img;
-					caption = img.getAttribute('data-caption') || img.alt;
+					caption = img.getAttribute('data-caption') || img.getAttribute('alt') || '';
 				}
 			}
 			
