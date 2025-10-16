@@ -23,8 +23,8 @@
 	},
 	{
 		"id": "3",
-		"cover": "/assets/cover/cover-web3-tools.png",
-		"title": "DeBot扫链工具完全指南",
+		"cover": "/assets/cover/debot-banner.jpg",
+		"title": "Debot扫链指南",
 		"desc": "详细介绍DeBot扫链工具的使用方法、AI信号监控、钱包监控、自动交易等核心功能，帮助Web3用户提升链上分析效率",
 		"detail": "/detail/debot-guide",
 		"category": "recommend,research,dex-tools,cex-tools",

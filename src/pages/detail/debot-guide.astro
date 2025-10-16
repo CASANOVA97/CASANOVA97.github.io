@@ -12,15 +12,17 @@ import debotScreenshot5 from "../../assets/projects/debot-screenshot5.jpg";
 import debotScreenshotSL from "../../assets/projects/debot-screenshot-sl.jpg";
 import debotGd1 from "../../assets/projects/debot-gd1.jpg";
 import debotGd2 from "../../assets/projects/debot-gd2.jpg";
+import debotBanner from "../../assets/projects/debot-banner.jpg";
 import aiSignalVideo from "../../../video/AI信号页面.mp4";
 import scanningInterfaceVideo from "../../../video/行情看盘功能介绍.mp4";
 import limitOrderVideo from "../../../video/如何使用限价单交易&自动止盈止损.mp4";
 ---
 
 <DetailPostLayout
-	title="DeBot扫链工具完全指南 | 行止的工具推荐"
+	title="Debot扫链指南 | 行止的工具推荐"
 	description="详细介绍DeBot扫链工具的使用方法、AI信号监控、钱包监控、自动交易等核心功能，帮助Web3用户提升链上分析效率"
 	keywords="DeBot,扫链工具,AI信号,钱包监控,自动交易,Web3工具,链上分析,行止"
+	coverImage={debotBanner}
 >
 	<div class="post">
 		<main class="post-wrapper">
@@ -28,7 +30,7 @@ import limitOrderVideo from "../../../video/如何使用限价单交易&自动�
 				tag="工具推荐"
 				description="">
 				<h1 class="font-type">
-					DeBot扫链工具完全指南
+					Debot扫链指南
 				</h1>
 			</DetailHeader>
 
@@ -121,7 +123,7 @@ import limitOrderVideo from "../../../video/如何使用限价单交易&自动�
 							<CallToAction href="https://debot.ai" target="_blank">
 								访问 DeBot
 							</CallToAction>
-							<CallToAction href="https://inv.debot.ai/r/263450" target="_blank">
+							<CallToAction href="https://inv.debot.ai/r/250103?lang=zh" target="_blank">
 								注册送Pro会员
 							</CallToAction>
 						</div>
@@ -300,7 +302,8 @@ import limitOrderVideo from "../../../video/如何使用限价单交易&自动�
 								alt="DeBot扫链界面个性化布局展示" 
 								loading="lazy" 
 								decoding="async"
-								class="screenshot-img"
+								class="screenshot-img zoomable-image"
+								data-caption="DeBot扫链界面个性化布局展示 - 四大核心模块完美结合"
 							/>
 							<p class="screenshot-caption">DeBot扫链界面个性化布局展示 - 四大核心模块完美结合</p>
 						</div>
@@ -372,7 +375,8 @@ import limitOrderVideo from "../../../video/如何使用限价单交易&自动�
 								alt="DeBot自动交易跟单策略配置界面" 
 								loading="lazy" 
 								decoding="async"
-								class="screenshot-img"
+								class="screenshot-img zoomable-image"
+								data-caption="DeBot自动交易跟单策略配置界面 - 多钱包跟单和策略设置"
 							/>
 							<p class="screenshot-caption">DeBot自动交易跟单策略配置界面 - 多钱包跟单和策略设置</p>
 						</div>
@@ -383,7 +387,8 @@ import limitOrderVideo from "../../../video/如何使用限价单交易&自动�
 								alt="DeBot自动交易策略模板和回测功能" 
 								loading="lazy" 
 								decoding="async"
-								class="screenshot-img"
+								class="screenshot-img zoomable-image"
+								data-caption="DeBot自动交易策略模板和回测功能 - AI信号跟单和策略优化"
 							/>
 							<p class="screenshot-caption">DeBot自动交易策略模板和回测功能 - AI信号跟单和策略优化</p>
 						</div>
@@ -484,14 +489,97 @@ import limitOrderVideo from "../../../video/如何使用限价单交易&自动�
 							通过四大核心模块的完美结合，能够大大增加胜率。对于喜欢前期潜入项目的P小将来说，DeBot无疑是极大的优势。无论是买入卖出还是上链速度，体验都非常流畅。整体感觉就是：靠谱、专业、效率高。
 						</p>
 						<p style="background: #e8f5e8; padding: 1rem; border-radius: 6px; border-left: 4px solid #28a745;">
-							<strong>💡 提示：</strong> 走我链接注册的朋友送10个Pro会员，先到先得，注册好DM我即可。Pro会员可以解锁800个钱包地址监控、800个Token地址监控、20个推特用户监控等高级功能。
+							<strong>💡 提示：</strong> 走我链接注册的朋友送Pro会员，先到先得，注册好DM我即可。Pro会员可以解锁800个钱包地址监控、800个Token地址监控、20个推特用户监控等高级功能。
 						</p>
 					</div>
 				</div>
 			</section>
 		</main>
 	</div>
+
+	<!-- 图片放大模态框 -->
+	<div id="imageModal" class="image-modal">
+		<span class="close-modal" onclick="closeImageModal()">&times;</span>
+		<img id="modalImage" class="modal-content" alt="">
+		<div id="modalCaption" class="modal-caption"></div>
+	</div>
 </DetailPostLayout>
+
+<script>
+	// 图片放大功能
+	function openImageModal(src, caption) {
+		const modal = document.getElementById('imageModal');
+		const modalImg = document.getElementById('modalImage');
+		const modalCaption = document.getElementById('modalCaption');
+		
+		modal.classList.add('show');
+		modalImg.src = src;
+		modalCaption.textContent = caption;
+		
+		// 防止背景滚动
+		document.body.style.overflow = 'hidden';
+	}
+
+	function closeImageModal() {
+		const modal = document.getElementById('imageModal');
+		modal.classList.remove('show');
+		
+		// 恢复背景滚动
+		document.body.style.overflow = 'auto';
+	}
+
+	// 等待DOM加载完成后添加事件监听器
+	document.addEventListener('DOMContentLoaded', function() {
+		console.log('DOM loaded, setting up image zoom functionality');
+		
+		// 为所有可放大的图片添加点击事件
+		document.addEventListener('click', function(e) {
+			console.log('Click detected on:', e.target);
+			console.log('Classes:', e.target.classList);
+			
+			// 检查点击的元素是否是图片或者包含图片的容器
+			let imgElement = null;
+			let caption = '';
+			
+			if (e.target.tagName === 'IMG' && e.target.classList.contains('zoomable-image')) {
+				// 直接点击图片
+				imgElement = e.target;
+				caption = e.target.getAttribute('data-caption') || e.target.alt;
+			} else if (e.target.classList.contains('tool-screenshot')) {
+				// 点击了图片容器，查找其中的图片
+				const img = e.target.querySelector('img.zoomable-image');
+				if (img) {
+					imgElement = img;
+					caption = img.getAttribute('data-caption') || img.alt;
+				}
+			}
+			
+			if (imgElement) {
+				console.log('Zoomable image found!');
+				const src = imgElement.src;
+				console.log('Opening modal with src:', src, 'caption:', caption);
+				openImageModal(src, caption);
+			}
+		});
+
+		// 点击模态框背景关闭
+		const modal = document.getElementById('imageModal');
+		if (modal) {
+			modal.addEventListener('click', function(e) {
+				if (e.target === this) {
+					closeImageModal();
+				}
+			});
+		}
+	});
+
+	// ESC键关闭模态框
+	document.addEventListener('keydown', function(e) {
+		if (e.key === 'Escape') {
+			closeImageModal();
+		}
+	});
+</script>
 
 <style>
 	/* 侧边目录样式 */
@@ -707,11 +795,101 @@ import limitOrderVideo from "../../../video/如何使用限价单交易&自动�
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 		border: 1px solid #e5e7eb;
 		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		cursor: pointer;
 	}
 
 	.screenshot-img:hover {
 		transform: translateY(-2px);
 		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+	}
+
+	/* 图片放大模态框样式 */
+	.image-modal {
+		display: none;
+		position: fixed;
+		z-index: 1000;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.9);
+		backdrop-filter: blur(5px);
+	}
+
+	.image-modal.show {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		animation: fadeIn 0.3s ease;
+	}
+
+	.modal-content {
+		max-width: 90%;
+		max-height: 90%;
+		object-fit: contain;
+		border-radius: 8px;
+		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+		animation: zoomIn 0.3s ease;
+	}
+
+	.close-modal {
+		position: absolute;
+		top: 20px;
+		right: 30px;
+		color: #fff;
+		font-size: 40px;
+		font-weight: bold;
+		cursor: pointer;
+		z-index: 1001;
+		transition: color 0.3s ease;
+	}
+
+	.close-modal:hover {
+		color: #ff6b6b;
+	}
+
+	.modal-caption {
+		position: absolute;
+		bottom: 20px;
+		left: 50%;
+		transform: translateX(-50%);
+		color: #fff;
+		background: rgba(0, 0, 0, 0.7);
+		padding: 10px 20px;
+		border-radius: 20px;
+		font-size: 14px;
+		text-align: center;
+		max-width: 80%;
+	}
+
+	@keyframes fadeIn {
+		from { opacity: 0; }
+		to { opacity: 1; }
+	}
+
+	@keyframes zoomIn {
+		from { transform: scale(0.8); opacity: 0; }
+		to { transform: scale(1); opacity: 1; }
+	}
+
+	/* 响应式设计 */
+	@media (max-width: 768px) {
+		.modal-content {
+			max-width: 95%;
+			max-height: 80%;
+		}
+		
+		.close-modal {
+			top: 10px;
+			right: 20px;
+			font-size: 30px;
+		}
+		
+		.modal-caption {
+			bottom: 10px;
+			font-size: 12px;
+			padding: 8px 16px;
+		}
 	}
 
 	.screenshot-caption {
